@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photos</title>
+    <style>
+        img {
+            max-width: 500px;
+            max-height: 900px;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #6c757d;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class='header'>    
+        <h1>Photos</h1> 
+    </div>
+    <main>
+        {% for photo_url in photos %}
+        <img src="{{ photo_url }}" alt="Photo">
+        {% endfor %}
+    </main>
+    <div class="footer">
+        <p>Copyright &copy; 2024. All rights reserved.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            background-color: #f0f0f0; /* Body background color */
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            display: block;
+            margin: auto;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        header {
+            background-color: #007BFF; /* Header background color */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #6c757d; /* Footer background color */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Welcome to Cloud Computing World</h1>
+    </header>
+    <main>
+        <form method="post" action="/login">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+              </div>
+              <div class="form-group">
+                <button type="submit">Submit</button>
+              </div>
+            <div class="register-link">
+                <a href="/register">Don't have an account? Register here</a>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2024. All rights reserved.</p>
+    </footer>
+</body>
+</html>
